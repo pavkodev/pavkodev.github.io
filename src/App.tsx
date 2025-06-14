@@ -6,6 +6,7 @@ import { techStack, type TechStackInfo } from "./types/TechStack";
 // tailwindcss jit: keep this classes for JIT to be able to capture them
 // border-[#ef652a] border-[#2965f1] border-[#f7df1e] border-[#38bdf8] border-[#3178c6] border-[#61dafb]
 // bg-[#ef652a]/10 bg-[#2965f1]/10 bg-[#f7df1e]/10 bg-[#38bdf8]/10 bg-[#3178c6]/10 bg-[#61dafb]/10
+// hover:bg-[#ef652a]/30 hover:bg-[#2965f1]/30 hover:bg-[#f7df1e]/30 hover:bg-[#38bdf8]/30 hover:bg-[#3178c6]/30 hover:bg-[#61dafb]/30
 
 function App() {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
@@ -117,10 +118,10 @@ function App() {
           {/* Tech Stack section */}
           <div className="my-4 rounded bg-slate-900 p-4">
             <h1 className="mb-4 text-xl font-bold">Tech Stack</h1>
-            <div className="w-fill m-auto grid grid-flow-row grid-cols-3 justify-between rounded border-2">
+            <div className="m-auto grid grid-flow-row grid-cols-3 justify-between gap-2 rounded border-2 p-2">
               {stack.map((tech) => (
                 <div
-                  className={`m-2 flex min-w-fit flex-col rounded bg-[${tech.colour}]/10 border-[${tech.colour}] border-2 p-2 sm:flex-row`}
+                  className={`flex w-full min-w-fit cursor-default flex-col rounded transition-all hover:bg-[${tech.colour}]/30 bg-[${tech.colour}]/10 border-[${tech.colour}] border-2 p-2 sm:flex-row`}
                 >
                   <img
                     className="mx-auto size-6 sm:mx-0 sm:mr-4 sm:size-10"
