@@ -1,48 +1,16 @@
 import { useState } from "react";
 import "./App.css";
+import { experienceTabs, type ExperienceObject } from "./types/Experience";
+import { techStack, type TechStackInfo } from "./types/TechStack";
 
-// Experience type and data section
-type ExperienceObject = {
-  title: string;
-  titleShortened?: string;
-  institution: string;
-  dateStart: string;
-  dateEnd: string;
-  image: string;
-};
-
-const enuExperience: ExperienceObject = {
-  title: "Bachelor of Engineering in Computing (Distinction)",
-  titleShortened: "BEng Computing (Distinction)",
-  institution: "Edinburgh Napier University",
-  dateStart: "2020",
-  dateEnd: "2024",
-  image: "src\\assets\\images\\enu.svg",
-};
-
-const ibExperience: ExperienceObject = {
-  title: "International Baccalaureate",
-  titleShortened: "IB Diploma",
-  institution: "Nyborg Gymnasium",
-  dateStart: "2017",
-  dateEnd: "2020",
-  image: "src\\assets\\images\\nyborggym.svg",
-};
-
-const riseExperience: ExperienceObject = {
-  title: "Frontend WordPress Developer",
-  titleShortened: "Frontend WordPress Developer",
-  institution: "RISE Aberdeen",
-  dateStart: "January 2023",
-  dateEnd: "May 2023",
-  image: "src\\assets\\images\\rise.png",
-};
+// tailwindcss jit: keep this classes for JIT to be able to capture them
+// border-[#ef652a] border-[#2965f1] border-[#f7df1e] border-[#38bdf8] border-[#3178c6] border-[#61dafb]
+// bg-[#ef652a]/10 bg-[#2965f1]/10 bg-[#f7df1e]/10 bg-[#38bdf8]/10 bg-[#3178c6]/10 bg-[#61dafb]/10
 
 function App() {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
-  const educationExperiences = [enuExperience, ibExperience];
-  const workExperiences = [riseExperience];
-  const experienceTabs = [educationExperiences, workExperiences];
+  const experience: ExperienceObject[][] = experienceTabs;
+  const stack: TechStackInfo[] = techStack;
   return (
     <>
       <div className="m-auto max-w-2xl px-4 text-stone-200 sm:px-0">
@@ -120,7 +88,7 @@ function App() {
             </ul>
             <div className="my-4 rounded-md border-2 border-l border-stone-200">
               <ul className="ml-10 border-l">
-                {experienceTabs[experienceTabIndex].map((experience) => (
+                {experience[experienceTabIndex].map((experience) => (
                   <div className="-ml-14 flex p-4">
                     <div className="m-2 flex items-center justify-center rounded-full bg-slate-900 p-3 ring">
                       <img
@@ -149,6 +117,27 @@ function App() {
           {/* Tech Stack section */}
           <div className="my-4 rounded bg-slate-900 p-4">
             <h1 className="mb-4 text-xl font-bold">Tech Stack</h1>
+            <div className="w-fill m-auto grid grid-flow-row grid-cols-3 justify-between rounded border-2">
+              {stack.map((tech) => (
+                <div
+                  className={`m-2 flex min-w-fit flex-col rounded bg-[${tech.colour}]/10 border-[${tech.colour}] border-2 p-2 sm:flex-row`}
+                >
+                  <img
+                    className="mx-auto size-6 sm:mx-0 sm:mr-4 sm:size-10"
+                    src={tech.icon}
+                    alt={`${tech.name} logo`}
+                  />
+                  <div className="flex flex-col justify-center sm:justify-normal">
+                    <p className="pt-2 text-center text-xs sm:pt-0 sm:text-left sm:text-base">
+                      {tech.name}
+                    </p>
+                    <small className="hidden italic sm:block">
+                      {tech.extraInfo}
+                    </small>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           {/* Recent Projects section */}
           <div className="my-4 rounded bg-slate-900 p-4">
