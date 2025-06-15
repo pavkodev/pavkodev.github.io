@@ -144,6 +144,23 @@ function App() {
           <div className="my-4 rounded bg-slate-900 p-4">
             <h1 className="mb-4 text-xl font-bold">Recent Projects</h1>
             <div className="flex flex-col gap-4">
+              <div className="max-w-[45%] rounded-xl border-2 p-4 shadow-[inset_0_-20px_40px_-30px_rgba(255,255,255,0.5)] transition-all hover:bg-stone-200/2 hover:shadow-[inset_0_-20px_45px_-25px_rgba(255,255,255,0.5)]">
+                <div className="flex flex-col gap-2">
+                  <img
+                    src="src\assets\images\placeholder.jpg"
+                    alt=""
+                    className="m-auto aspect-video rounded-lg"
+                  />
+                  <h2 className="text-lg font-semibold">Lorem, ipsum dolor.</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <a href="#" className="inline-block">
+                      Learn more...
+                    </a>
+                  </p>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
                 <img
                   src="src\assets\images\placeholder.jpg"
@@ -158,6 +175,7 @@ function App() {
                   </a>
                 </p>
               </div>
+
               <div className="flex flex-col sm:flex-row-reverse sm:items-center sm:gap-2">
                 <img
                   src="src\assets\images\placeholder.jpg"
