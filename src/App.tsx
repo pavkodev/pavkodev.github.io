@@ -143,8 +143,8 @@ function App() {
           {/* Recent Projects section */}
           <div className="my-4 rounded bg-slate-900 p-4">
             <h1 className="mb-4 text-xl font-bold">Recent Projects</h1>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
                 <img
                   src="src\assets\images\placeholder.jpg"
                   alt=""
@@ -153,10 +153,12 @@ function App() {
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
                   debitis, voluptates dignissimos ea consequuntur ad.
+                  <a href="#" className="block">
+                    Learn more...
+                  </a>
                 </p>
-                <a href="#">Learn more...</a>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col sm:flex-row-reverse sm:items-center sm:gap-2">
                 <img
                   src="src\assets\images\placeholder.jpg"
                   alt=""
@@ -165,10 +167,12 @@ function App() {
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
                   debitis, voluptates dignissimos ea consequuntur ad.
+                  <a href="#" className="block">
+                    Learn more...
+                  </a>
                 </p>
-                <a href="#">Learn more...</a>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
                 <img
                   src="src\assets\images\placeholder.jpg"
                   alt=""
@@ -177,8 +181,10 @@ function App() {
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
                   debitis, voluptates dignissimos ea consequuntur ad.
+                  <a href="#" className="block">
+                    Learn more...
+                  </a>
                 </p>
-                <a href="#">Learn more...</a>
               </div>
             </div>
           </div>
