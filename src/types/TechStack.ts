@@ -5,32 +5,32 @@ export type TechStackInfo = {
   colour: string;
 };
 
-const htmlInfo: TechStackInfo = {
+export const htmlInfo: TechStackInfo = {
   name: "HTML",
   icon: "src\\assets\\svgs\\html.svg",
   colour: "#ef652a",
 };
-const cssInfo: TechStackInfo = {
+export const cssInfo: TechStackInfo = {
   name: "CSS",
   icon: "src\\assets\\svgs\\css.svg",
   colour: "#2965f1",
 };
-const javascriptInfo: TechStackInfo = {
+export const javascriptInfo: TechStackInfo = {
   name: "JavaScript",
   icon: "src\\assets\\svgs\\javascript.svg",
   colour: "#f7df1e",
 };
-const tailwindInfo: TechStackInfo = {
+export const tailwindInfo: TechStackInfo = {
   name: "Tailwind",
   icon: "src\\assets\\svgs\\tailwind.svg",
   colour: "#38bdf8",
 };
-const typescriptInfo: TechStackInfo = {
+export const typescriptInfo: TechStackInfo = {
   name: "TypeScript",
   icon: "src\\assets\\svgs\\typescript.svg",
   colour: "#3178c6",
 };
-const reactInfo: TechStackInfo = {
+export const reactInfo: TechStackInfo = {
   name: "React",
   extraInfo: "Still learning!",
   icon: "src\\assets\\svgs\\react.svg",

@@ -157,8 +157,10 @@ function App() {
                     <h2 className="text-xl font-semibold">{project.name}</h2>
                     <div className="flex flex-wrap gap-1">
                       {project.tools.map((tool) => (
-                        <p className="inline rounded-2xl border-1 p-1 px-2 text-xs">
-                          {tool}
+                        <p
+                          className={`inline border-[${tool.colour}] bg-[${tool.colour}]/10 rounded-2xl border-1 p-1 px-2 text-xs`}
+                        >
+                          {tool.name}
                         </p>
                       ))}
                     </div>

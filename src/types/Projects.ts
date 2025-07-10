@@ -1,10 +1,20 @@
+import {
+  htmlInfo as html,
+  cssInfo as css,
+  javascriptInfo as javascript,
+  tailwindInfo as tailwind,
+  typescriptInfo as typescript,
+  reactInfo as react,
+  type TechStackInfo,
+} from "./TechStack";
+
 export type ProjectPreviewObject = {
   name: string;
   description: string;
   image: string;
   url: string;
   detailsUrl: string;
-  tools: string[];
+  tools: TechStackInfo[];
 };
 
 export const animExplorePreview: ProjectPreviewObject = {
@@ -13,7 +23,7 @@ export const animExplorePreview: ProjectPreviewObject = {
   image: "src/assets/images/animexplore-logo.png",
   url: "https://pavkodev.github.io/AnimExplore/",
   detailsUrl: "",
-  tools: ["HTML", "CSS", "Tailwind", "JavaScript", "TypeScript", "React"],
+  tools: [html, css, tailwind, javascript, typescript, react],
 };
 
 export const countryViewPreview: ProjectPreviewObject = {
@@ -22,7 +32,7 @@ export const countryViewPreview: ProjectPreviewObject = {
   image: "src/assets/images/countryview-logo-merged.png",
   url: "https://pavkodev.github.io/countryview-ts/",
   detailsUrl: "",
-  tools: ["HTML", "CSS", "Tailwind", "JavaScript", "TypeScript"],
+  tools: [html, css, tailwind, javascript, typescript],
 };
 
 export const projectPreviews: ProjectPreviewObject[] = [
