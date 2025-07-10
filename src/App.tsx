@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { experienceTabs, type ExperienceObject } from "./types/Experience";
 import { techStack, type TechStackInfo } from "./types/TechStack";
+import { projectPreviews } from "./types/Projects";
 
 // tailwindcss jit: keep this classes for JIT to be able to capture them
 // border-[#ef652a] border-[#2965f1] border-[#f7df1e] border-[#38bdf8] border-[#3178c6] border-[#61dafb]
@@ -12,6 +13,7 @@ function App() {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
   const experience: ExperienceObject[][] = experienceTabs;
   const stack: TechStackInfo[] = techStack;
+  const recentProjects = projectPreviews.slice(0, 2);
   return (
     <>
       <div className="m-auto max-w-2xl px-4 text-stone-200 sm:px-0">
@@ -143,68 +145,43 @@ function App() {
           {/* Recent Projects section */}
           <div className="my-4 rounded bg-slate-900 p-4">
             <h1 className="mb-4 text-xl font-bold">Recent Projects</h1>
-            <div className="flex flex-col gap-4">
-              <div className="max-w-[45%] rounded-xl border-2 p-4 shadow-[inset_0_-20px_40px_-30px_rgba(255,255,255,0.5)] transition-all hover:bg-stone-200/2 hover:shadow-[inset_0_-20px_45px_-25px_rgba(255,255,255,0.5)]">
-                <div className="flex flex-col gap-2">
-                  <img
-                    src="src\assets\images\placeholder.jpg"
-                    alt=""
-                    className="m-auto aspect-video rounded-lg"
-                  />
-                  <h2 className="text-lg font-semibold">Lorem, ipsum dolor.</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    <a href="#" className="inline-block">
-                      Learn more...
-                    </a>
-                  </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {recentProjects.map((project) => (
+                <div className="col-span-1 rounded-xl border-2 p-4 shadow-[inset_0_-20px_40px_-30px_rgba(255,255,255,0.5)] transition-all hover:bg-stone-200/2 hover:shadow-[inset_0_-20px_45px_-25px_rgba(255,255,255,0.5)]">
+                  <div className="flex flex-col gap-2">
+                    <img
+                      src={project.image}
+                      alt=""
+                      className="m-auto size-40 rounded-lg sm:size-60"
+                    />
+                    <h2 className="text-xl font-semibold">{project.name}</h2>
+                    <div className="flex flex-wrap gap-1">
+                      {project.tools.map((tool) => (
+                        <p className="inline rounded-2xl border-1 p-1 px-2 text-xs">
+                          {tool}
+                        </p>
+                      ))}
+                    </div>
+                    <p>
+                      {project.description}
+                      <a
+                        href={project.url}
+                        className="inline-block pl-1 text-orange-500 underline"
+                      >
+                        Learn more...
+                      </a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                <img
-                  src="src\assets\images\placeholder.jpg"
-                  alt=""
-                  className="aspect-video"
-                />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  debitis, voluptates dignissimos ea consequuntur ad.
-                  <a href="#" className="block">
-                    Learn more...
-                  </a>
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row-reverse sm:items-center sm:gap-2">
-                <img
-                  src="src\assets\images\placeholder.jpg"
-                  alt=""
-                  className="aspect-video"
-                />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  debitis, voluptates dignissimos ea consequuntur ad.
-                  <a href="#" className="block">
-                    Learn more...
-                  </a>
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                <img
-                  src="src\assets\images\placeholder.jpg"
-                  alt=""
-                  className="aspect-video"
-                />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  debitis, voluptates dignissimos ea consequuntur ad.
-                  <a href="#" className="block">
-                    Learn more...
-                  </a>
-                </p>
-              </div>
+              ))}
             </div>
+            <a
+              href="#"
+              className="group mt-10 block cursor-pointer text-xl font-bold"
+            >
+              More projects{" "}
+              <span className="transition-all group-hover:pl-2">&rarr;</span>
+            </a>
           </div>
         </main>
       </div>
