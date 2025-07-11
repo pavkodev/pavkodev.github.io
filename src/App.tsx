@@ -14,6 +14,12 @@ function App() {
   const experience: ExperienceObject[][] = experienceTabs;
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2);
+  const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
+  const playHighfive = () => {
+    highfive.load();
+    highfive.play();
+  };
+  highfive.volume = 0.1;
   return (
     <>
       <div className="m-auto max-w-2xl px-4 text-stone-200 sm:px-0">
@@ -42,7 +48,12 @@ function App() {
               <div className="text-xl">
                 <p>
                   Hello, World! I'm Pavel{" "}
-                  <span className="hover:animate-pulse">👋</span>
+                  <div
+                    onMouseOver={() => playHighfive()}
+                    className="animate-wiggle inline-block origin-bottom-right hover:scale-105 hover:cursor-grab"
+                  >
+                    👋
+                  </div>
                 </p>
                 <p className="group mb-1 flex items-center gap-1 text-xs">
                   <svg

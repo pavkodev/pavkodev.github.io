@@ -3,4 +3,16 @@
 
 @theme {
   --font-pixelify: "Pixelify Sans", "sans-serif";
+
+  --animate-wiggle: wiggle 1s ease-in-out 1s 2;
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0turn);
+    }
+    50% {
+      transform: rotate(0.05turn);
+    }
+  }
 }
