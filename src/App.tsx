@@ -14,6 +14,7 @@ function App() {
   const experience: ExperienceObject[][] = experienceTabs;
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2);
+  const [handGesture, setHandGesture] = useState("👋");
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
   const playHighfive = () => {
     highfive.load();
@@ -48,12 +49,15 @@ function App() {
               <div className="text-xl">
                 <p>
                   Hello, World! I'm Pavel{" "}
-                  <div
-                    onMouseOver={() => playHighfive()}
-                    className="animate-wiggle inline-block origin-bottom-right hover:scale-105 hover:cursor-grab"
+                  <span
+                    onMouseEnter={() =>
+                      handGesture === "👋" ? playHighfive() : ""
+                    }
+                    onClick={() => setHandGesture("🤝")}
+                    className={`animate-wiggle inline-block origin-bottom-right ${handGesture === "👋" ? "hover:scale-105 hover:cursor-grab" : "hover:cursor-default"}`}
                   >
-                    👋
-                  </div>
+                    {handGesture}
+                  </span>
                 </p>
                 <p className="group mb-1 flex items-center gap-1 text-xs">
                   <svg
