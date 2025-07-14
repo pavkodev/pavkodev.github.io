@@ -10,21 +10,6 @@ import { projectPreviews } from "./types/Projects";
 // hover:bg-[#ef652a]/30 hover:bg-[#2965f1]/30 hover:bg-[#f7df1e]/30 hover:bg-[#38bdf8]/30 hover:bg-[#3178c6]/30 hover:bg-[#61dafb]/30
 
 function App() {
-  //Month array for custom work experience form
-  const month = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
   const experience: ExperienceObject[][] = experienceTabs;
   const EXPERIENCEEDUCATION = 0;
@@ -141,6 +126,67 @@ function App() {
             </ul>
             <div className="my-4 rounded-md border-2 border-l border-stone-200">
               <ul className="ml-10 border-l">
+                {/* Custom work experience field for HR */}
+                {experienceTabIndex === EXPERIENCEWORK ? (
+                  <form action="" className="-ml-14 flex p-4">
+                    <div className="m-2 flex items-center justify-center rounded-full bg-slate-900 p-3 ring">
+                      <label htmlFor="input-image">
+                        {/* Plus icon used as input indicator for custom company logo input prompt */}
+                        <img
+                          src="src/assets/svgs/add.svg"
+                          alt="placeholder input image"
+                          className="size-10 cursor-pointer"
+                          id="custom-logo"
+                        />
+                      </label>
+                      <input
+                        type="file"
+                        name="input-image"
+                        id="input-image"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          let file = null;
+                          if (e.target.files) {
+                            file = e.target.files[0];
+                          }
+                          let image: HTMLImageElement | null = null;
+                          if (document.getElementById("custom-logo")) {
+                            image = document.getElementById(
+                              "custom-logo",
+                            ) as HTMLImageElement;
+                          }
+                          if (file && image)
+                            image.src = URL.createObjectURL(file);
+                        }}
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col justify-evenly">
+                      <small className="text-xs">
+                        Check out how great your company would look here 😎
+                      </small>
+                      <textarea
+                        name="company-name"
+                        id="company-name"
+                        placeholder="Job position here"
+                        className="field-sizing-content w-[100%] resize-none font-bold"
+                        wrap="soft"
+                      ></textarea>
+                      <small className="w-full">
+                        <textarea
+                          name="company-name"
+                          id="company-name"
+                          placeholder="Company name here"
+                          className="field-sizing-content w-[100%] resize-none"
+                          wrap="soft"
+                          rows={1}
+                        ></textarea>
+                      </small>
+                    </div>
+                  </form>
+                ) : (
+                  ""
+                )}
                 {experience[experienceTabIndex].map((experience) => (
                   <div className="-ml-14 flex p-4">
                     <div className="m-2 flex items-center justify-center rounded-full bg-slate-900 p-3 ring">
