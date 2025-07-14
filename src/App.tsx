@@ -10,10 +10,27 @@ import { projectPreviews } from "./types/Projects";
 // hover:bg-[#ef652a]/30 hover:bg-[#2965f1]/30 hover:bg-[#f7df1e]/30 hover:bg-[#38bdf8]/30 hover:bg-[#3178c6]/30 hover:bg-[#61dafb]/30
 
 function App() {
+  //Month array for custom work experience form
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
   const experience: ExperienceObject[][] = experienceTabs;
+  const EXPERIENCEEDUCATION = 0;
+  const EXPERIENCEWORK = 1;
   const stack: TechStackInfo[] = techStack;
-  const recentProjects = projectPreviews.slice(0, 2);
+  const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
   const playHighfive = () => {
@@ -64,7 +81,7 @@ function App() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="-ml-1 inline size-4 text-red-400 group-hover:animate-bounce"
+                    className="-ml-1 inline size-4 text-red-400"
                   >
                     <path
                       fillRule="evenodd"
@@ -80,11 +97,29 @@ function App() {
                 </div>
               </div>
             </div>
-            <p className="py-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus quas rerum facilis consequuntur rem eveniet similique
-              consequatur, odio eaque, voluptas vero nesciunt mollitia quo?
-              Harum voluptas asperiores nam dignissimos mollitia!
+            <p className="group py-4">
+              <span className="transition-opacity group-hover:opacity-50">
+                I'm a frontend web developer with a keen{" "}
+              </span>
+              <span className="transition-all group-hover:bg-amber-800">
+                <span className="transition-all"> eye for detail</span>
+              </span>{" "}
+              <span className="transition-opacity group-hover:opacity-50">
+                who enjoys making tidy, organised websites with{" "}
+              </span>
+              <span className="transition-all duration-200 group-hover:bg-amber-800">
+                <span className="transition-all">
+                  responsive and reusable UI components.
+                </span>
+              </span>{" "}
+              <span className="transition-opacity group-hover:opacity-50">
+                My favourite personal touch for my websites is{" "}
+              </span>
+              <span className="transition-all duration-400 group-hover:bg-amber-800">
+                <span className="transition-all duration-400">
+                  balancing usability with interactibility and engageability.
+                </span>
+              </span>
             </p>
           </div>
           {/* Experience section */}
@@ -93,13 +128,13 @@ function App() {
             <ul className="flex justify-between rounded-xl bg-slate-950/20">
               <li
                 className={`flex-1 cursor-pointer rounded-l-xl py-1 text-center transition-all ${experienceTabIndex === 0 ? "bg-stone-200 text-neutral-950" : ""} `}
-                onClick={() => setExperienceTabIndex(0)}
+                onClick={() => setExperienceTabIndex(EXPERIENCEEDUCATION)}
               >
                 Education
               </li>
               <li
                 className={`flex-1 cursor-pointer rounded-r-xl py-1 text-center transition-all ${experienceTabIndex === 1 ? "bg-stone-200 text-neutral-950" : ""}`}
-                onClick={() => setExperienceTabIndex(1)}
+                onClick={() => setExperienceTabIndex(EXPERIENCEWORK)}
               >
                 Work
               </li>
