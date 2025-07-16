@@ -35,7 +35,11 @@ function App() {
           <ul className="mt-4 flex gap-4 sm:mt-0">
             <li className="cursor-pointer p-1 hover:bg-slate-800">Projects</li>
             <li className="cursor-pointer p-1 hover:bg-slate-800">Contact</li>
-            <li className="cursor-pointer p-1 hover:bg-slate-800">GitHub</li>
+            <li className="cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5">
+              <a href="https://github.com/pavkodev/" target="_blank">
+                GitHub
+              </a>
+            </li>
           </ul>
         </header>
 
@@ -87,23 +91,19 @@ function App() {
                 I'm a frontend web developer with a keen{" "}
               </span>
               <span className="transition-all group-hover:bg-amber-800">
-                <span className="transition-all"> eye for detail</span>
+                eye for detail
               </span>{" "}
               <span className="transition-opacity group-hover:opacity-50">
                 who enjoys making tidy, organised websites with{" "}
               </span>
               <span className="transition-all duration-200 group-hover:bg-amber-800">
-                <span className="transition-all">
-                  responsive and reusable UI components.
-                </span>
+                responsive and reusable UI components.
               </span>{" "}
               <span className="transition-opacity group-hover:opacity-50">
                 My favourite personal touch for my websites is{" "}
               </span>
               <span className="transition-all duration-400 group-hover:bg-amber-800">
-                <span className="transition-all duration-400">
-                  balancing usability with interactibility and engageability.
-                </span>
+                balancing usability with interactibility and engageability.
               </span>
             </p>
           </div>
