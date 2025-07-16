@@ -87,22 +87,22 @@ function App() {
               </div>
             </div>
             <p className="group py-4">
-              <span className="transition-opacity group-hover:opacity-50">
+              <span className="transition-opacity delay-200 group-hover:opacity-50">
                 I'm a frontend web developer with a keen{" "}
               </span>
-              <span className="transition-all group-hover:bg-amber-800">
+              <span className="transition-all delay-200 group-hover:bg-amber-800">
                 eye for detail
               </span>{" "}
-              <span className="transition-opacity group-hover:opacity-50">
+              <span className="transition-opacity delay-200 group-hover:opacity-50">
                 who enjoys making tidy, organised websites with{" "}
               </span>
-              <span className="transition-all duration-200 group-hover:bg-amber-800">
+              <span className="transition-all delay-200 duration-200 group-hover:bg-amber-800">
                 responsive and reusable UI components.
               </span>{" "}
-              <span className="transition-opacity group-hover:opacity-50">
+              <span className="transition-opacity delay-200 group-hover:opacity-50">
                 My favourite personal touch for my websites is{" "}
               </span>
-              <span className="transition-all duration-400 group-hover:bg-amber-800">
+              <span className="transition-all delay-200 duration-400 group-hover:bg-amber-800">
                 balancing usability with interactibility and engageability.
               </span>
             </p>
