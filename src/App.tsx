@@ -17,6 +17,7 @@ function App() {
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
+  const [showContact, setShowContact] = useState(false);
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
   const playHighfive = () => {
     highfive.load();
@@ -33,8 +34,59 @@ function App() {
             <span className="hidden sm:inline">TKA</span>
           </a>
           <ul className="mt-4 flex gap-4 sm:mt-0">
-            <li className="cursor-pointer p-1 hover:bg-slate-800">Projects</li>
-            <li className="cursor-pointer p-1 hover:bg-slate-800">Contact</li>
+            <li className="cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5">
+              Projects
+            </li>
+            <li
+              className="relative cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5"
+              onClick={() =>
+                showContact === true
+                  ? setShowContact(false)
+                  : setShowContact(true)
+              }
+            >
+              Contact
+              <ul
+                className={`group absolute left-1/2 flex -translate-x-1/2 gap-4 ${showContact === true ? "pointer-events-auto translate-y-3 opacity-100" : "pointer-events-none translate-y-0 opacity-0"} rounded border-2 bg-slate-900 p-2 duration-200`}
+              >
+                <li
+                  className={`transtiion-all duration-200 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
+                >
+                  <a
+                    href="https://www.linkedin.com/in/pavel-kotka"
+                    target="_blank"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      className="m-auto size-10 fill-stone-200"
+                    >
+                      <title>linkedin</title>
+                      <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                    </svg>
+                    <p>LinkedIn</p>
+                  </a>
+                </li>
+                <li
+                  className={`transtiion-all duration-400 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
+                >
+                  <div>
+                    <a href="#blank">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        className="m-auto size-10 fill-stone-200"
+                      >
+                        <title>email-arrow-right-outline</title>
+                        <path d="M13 19C13 18.66 13.04 18.33 13.09 18H4V8L12 13L20 8V13.09C20.72 13.21 21.39 13.46 22 13.81V6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H13.09C13.04 19.67 13 19.34 13 19M20 6L12 11L4 6H20M20 22V20H16V18H20V16L23 19L20 22Z" />
+                      </svg>
+                    </a>
+                    <p></p>
+                  </div>
+                  Email
+                </li>
+              </ul>
+            </li>
             <li className="cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5">
               <a href="https://github.com/pavkodev/" target="_blank">
                 GitHub
