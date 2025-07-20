@@ -80,10 +80,9 @@ function App() {
                         <title>email-arrow-right-outline</title>
                         <path d="M13 19C13 18.66 13.04 18.33 13.09 18H4V8L12 13L20 8V13.09C20.72 13.21 21.39 13.46 22 13.81V6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H13.09C13.04 19.67 13 19.34 13 19M20 6L12 11L4 6H20M20 22V20H16V18H20V16L23 19L20 22Z" />
                       </svg>
+                      <p>Email</p>
                     </a>
-                    <p></p>
                   </div>
-                  Email
                 </li>
               </ul>
             </li>
@@ -140,21 +139,27 @@ function App() {
             </div>
             <p className="group py-4">
               <span className="transition-opacity delay-200 group-hover:opacity-50">
-                I'm a frontend web developer with a keen{" "}
+                I'm a{" "}
               </span>
               <span className="transition-all delay-200 group-hover:bg-amber-800">
-                eye for detail
-              </span>{" "}
+                frontend web developer{" "}
+              </span>
+              <span className="transition-opacity delay-200 group-hover:opacity-50">
+                with a keen{" "}
+              </span>
+              <span className="transition-all delay-200 duration-200 group-hover:bg-amber-800">
+                eye for detail{" "}
+              </span>
               <span className="transition-opacity delay-200 group-hover:opacity-50">
                 who enjoys making tidy, organised websites with{" "}
               </span>
-              <span className="transition-all delay-200 duration-200 group-hover:bg-amber-800">
-                responsive and reusable UI components.
-              </span>{" "}
+              <span className="transition-all delay-200 duration-400 group-hover:bg-amber-800">
+                responsive and reusable UI components.{" "}
+              </span>
               <span className="transition-opacity delay-200 group-hover:opacity-50">
                 My favourite personal touch for my websites is{" "}
               </span>
-              <span className="transition-all delay-200 duration-400 group-hover:bg-amber-800">
+              <span className="transition-all delay-200 duration-600 group-hover:bg-amber-800">
                 balancing usability with interactibility and engageability.
               </span>
             </p>
