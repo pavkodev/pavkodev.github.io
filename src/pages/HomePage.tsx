@@ -3,6 +3,7 @@ import { experienceTabs, type ExperienceObject } from "../types/Experience";
 import { techStack, type TechStackInfo } from "../types/TechStack";
 import { projectPreviews } from "../types/Projects";
 import HeaderComponent from "../components/HeaderComponent";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
@@ -300,13 +301,13 @@ const Homepage = () => {
                 </div>
               ))}
             </div>
-            <a
-              href="#"
+            <Link
+              to="/projects"
               className="group mt-10 block w-fit cursor-pointer text-xl font-bold"
             >
               More projects{" "}
               <span className="transition-all group-hover:pl-2">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </main>
       </div>
