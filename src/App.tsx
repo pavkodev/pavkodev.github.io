@@ -60,16 +60,14 @@ function App() {
             <span className="hidden sm:inline">TKA</span>
           </a>
           <ul className="mt-4 flex gap-4 sm:mt-0">
-            <li className="cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5">
-              Projects
-            </li>
+            <a href="/projects">
+              <li className="cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5">
+                Projects
+              </li>
+            </a>
             <li
-              className="relative cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5"
-              onClick={() =>
-                showContact === true
-                  ? setShowContact(false)
-                  : setShowContact(true)
-              }
+              className="relative cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5"
+              onClick={() => setShowContact(!showContact)}
             >
               Contact
               <ul
@@ -129,7 +127,7 @@ function App() {
                       </svg>
                     </button>
                     <a
-                      href=""
+                      href="/email-form"
                       className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
                     >
                       <svg
@@ -145,11 +143,11 @@ function App() {
                 </li>
               </ul>
             </li>
-            <li className="cursor-pointer p-1 hover:bg-slate-800 active:translate-y-0.5">
-              <a href="https://github.com/pavkodev/" target="_blank">
+            <a href="https://github.com/pavkodev/" target="_blank">
+              <li className="cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5">
                 GitHub
-              </a>
-            </li>
+              </li>
+            </a>
           </ul>
         </header>
 
