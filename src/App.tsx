@@ -1,3 +1,5 @@
+//TODO: ADD https://www.w3schools.com/howto/howto_js_copy_clipboard.asp AND EMAIL FORM FILLOUT https://www.youtube.com/watch?v=r4RQ38EoLds
+
 import { useState } from "react";
 import "./App.css";
 import { experienceTabs, type ExperienceObject } from "./types/Experience";
@@ -18,11 +20,35 @@ function App() {
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
   const [showContact, setShowContact] = useState(false);
+
+  const svgCopyPath =
+    "M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z";
+
+  const svgTickPath = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z";
+  const [emailCopySvgPath, setEmailCopySvgPath] = useState(svgCopyPath);
+
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
   const playHighfive = () => {
     highfive.load();
     highfive.play();
   };
+
+  const handleEmailCopy = () => {
+    navigator.clipboard.writeText("pavel.kotka@gmail.com");
+
+    const btnCopyEmail = document.getElementById("btn-email-copy");
+    btnCopyEmail?.classList.replace("hover:bg-stone-200", "bg-green-600");
+    btnCopyEmail?.classList.remove("hover:text-stone-950");
+
+    setEmailCopySvgPath(svgTickPath);
+
+    setTimeout(() => {
+      btnCopyEmail?.classList.replace("bg-green-600", "hover:bg-stone-200");
+      btnCopyEmail?.classList.add("hover:text-stone-950");
+      setEmailCopySvgPath(svgCopyPath);
+    }, 1000);
+  };
+
   highfive.volume = 0.1;
   return (
     <>
@@ -86,19 +112,21 @@ function App() {
                       <p>Email</p>
                     </div>
                     <div className="pointer-events-none absolute inset-0 top-[50%] flex h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs">
-                      <a
-                        href=""
+                      <button
+                        id="btn-email-copy"
                         className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
+                        onClick={() => handleEmailCopy()}
                       >
                         <svg
+                          id="svg-email-copy"
                           className="m-auto size-5 fill-current"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                         >
                           <title>Copy email</title>
-                          <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+                          <path id="svg-path-email-copy" d={emailCopySvgPath} />
                         </svg>
-                      </a>
+                      </button>
                       <a
                         href=""
                         className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
