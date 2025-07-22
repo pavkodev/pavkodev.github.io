@@ -99,8 +99,8 @@ function App() {
                 <li
                   className={`transtiion-all duration-400 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
                 >
-                  <a href="/email-form" className="relative">
-                    <div className="peer p-1">
+                  <a href="/email-form" className="peer relative">
+                    <div className="p-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -111,37 +111,37 @@ function App() {
                       </svg>
                       <p>Email</p>
                     </div>
-                    <div className="pointer-events-none absolute inset-0 top-[50%] flex h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs">
-                      <button
-                        id="btn-email-copy"
-                        className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
-                        onClick={() => handleEmailCopy()}
-                      >
-                        <svg
-                          id="svg-email-copy"
-                          className="m-auto size-5 fill-current"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
-                          <title>Copy email</title>
-                          <path id="svg-path-email-copy" d={emailCopySvgPath} />
-                        </svg>
-                      </button>
-                      <a
-                        href=""
-                        className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
-                      >
-                        <svg
-                          className="m-auto size-5 fill-current"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
-                          <title>Email form</title>
-                          <path d="M3 20V4L22 12M5 17L16.85 12L5 7V10.5L11 12L5 13.5M5 17V7 13.5Z" />
-                        </svg>
-                      </a>
-                    </div>
                   </a>
+                  <div className="pointer-events-none absolute inset-0 top-[50%] flex h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs">
+                    <button
+                      id="btn-email-copy"
+                      className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
+                      onClick={() => handleEmailCopy()}
+                    >
+                      <svg
+                        id="svg-email-copy"
+                        className="m-auto size-5 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <title>Copy email</title>
+                        <path id="svg-path-email-copy" d={emailCopySvgPath} />
+                      </svg>
+                    </button>
+                    <a
+                      href=""
+                      className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
+                    >
+                      <svg
+                        className="m-auto size-5 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <title>Email form</title>
+                        <path d="M3 20V4L22 12M5 17L16.85 12L5 7V10.5L11 12L5 13.5M5 17V7 13.5Z" />
+                      </svg>
+                    </a>
+                  </div>
                 </li>
               </ul>
             </li>
