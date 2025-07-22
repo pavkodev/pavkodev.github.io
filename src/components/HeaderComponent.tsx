@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   const [showContact, setShowContact] = useState(false);
@@ -27,16 +28,16 @@ const HeaderComponent = () => {
 
   return (
     <header className="mt-4 flex flex-col items-center justify-between rounded bg-slate-900 p-2 font-mono text-xl sm:flex-row">
-      <a href="/" className="cursor-pointer text-2xl font-extrabold">
+      <Link to="/" className="cursor-pointer text-2xl font-extrabold">
         PAV<span className="hidden sm:inline">EL </span>KO
         <span className="hidden sm:inline">TKA</span>
-      </a>
+      </Link>
       <ul className="mt-4 flex gap-4 sm:mt-0">
-        <a href="/projects">
+        <Link to="/projects">
           <li className="cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5">
             Projects
           </li>
-        </a>
+        </Link>
         <li
           className="relative cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5"
           onClick={() => setShowContact(!showContact)}
@@ -69,7 +70,7 @@ const HeaderComponent = () => {
             <li
               className={`transtiion-all duration-400 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
             >
-              <a href="/email-form" className="peer relative">
+              <Link to="/email-form" className="peer relative">
                 <div className="p-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +82,7 @@ const HeaderComponent = () => {
                   </svg>
                   <p>Email</p>
                 </div>
-              </a>
+              </Link>
               <div className="pointer-events-none absolute inset-0 top-[50%] flex h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs">
                 <button
                   id="btn-email-copy"
@@ -98,8 +99,8 @@ const HeaderComponent = () => {
                     <path id="svg-path-email-copy" d={emailCopySvgPath} />
                   </svg>
                 </button>
-                <a
-                  href="/email-form"
+                <Link
+                  to="/email-form"
                   className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
                 >
                   <svg
@@ -110,7 +111,7 @@ const HeaderComponent = () => {
                     <title>Email form</title>
                     <path d="M3 20V4L22 12M5 17L16.85 12L5 7V10.5L11 12L5 13.5M5 17V7 13.5Z" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
