@@ -4,6 +4,8 @@ import { techStack, type TechStackInfo } from "../types/TechStack";
 import { projectPreviews } from "../types/Projects";
 import HeaderComponent from "../components/HeaderComponent";
 import { Link } from "react-router-dom";
+import PageSection from "../components/PageSection";
+import PageStyling from "../components/PageStyling";
 
 const Homepage = () => {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
@@ -23,13 +25,13 @@ const Homepage = () => {
   highfive.volume = 0.1;
   return (
     <>
-      <div className="m-auto max-w-2xl px-4 text-stone-200 sm:px-0">
+      <PageStyling>
         {/* Header section */}
         <HeaderComponent />
 
         <main>
           {/* About section */}
-          <div className="my-4 rounded bg-slate-900 p-4">
+          <PageSection>
             <div className="flex gap-5">
               <img
                 className="my-auto size-[70px] rounded-full"
@@ -96,9 +98,9 @@ const Homepage = () => {
                 balancing usability with interactibility and engageability.
               </span>
             </p>
-          </div>
+          </PageSection>
           {/* Experience section */}
-          <div className="my-4 rounded bg-slate-900 p-4">
+          <PageSection>
             <h1 className="mb-4 text-xl font-bold">Experience</h1>
             <ul className="flex justify-between rounded-xl bg-slate-950/20">
               <li
@@ -202,9 +204,9 @@ const Homepage = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </PageSection>
           {/* Tech Stack section */}
-          <div className="my-4 rounded bg-slate-900 p-4">
+          <PageSection>
             <h1 className="mb-4 text-xl font-bold">Tech Stack</h1>
             <div className="m-auto grid grid-flow-row grid-cols-3 justify-between gap-2 rounded border-2 p-2">
               {stack.map((tech) => (
@@ -227,9 +229,9 @@ const Homepage = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </PageSection>
           {/* Recent Projects section */}
-          <div className="my-4 rounded bg-slate-900 p-4">
+          <PageSection>
             <h1 className="mb-4 text-xl font-bold">Recent Projects</h1>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {recentProjects.map((project) => (
@@ -308,9 +310,9 @@ const Homepage = () => {
               More projects{" "}
               <span className="transition-all group-hover:pl-2">&rarr;</span>
             </Link>
-          </div>
+          </PageSection>
         </main>
-      </div>
+      </PageStyling>
     </>
   );
 };
