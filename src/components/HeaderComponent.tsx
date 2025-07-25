@@ -11,7 +11,9 @@ const HeaderComponent = () => {
   const [emailCopySvgPath, setEmailCopySvgPath] = useState(svgCopyPath);
 
   const handleEmailCopy = () => {
-    navigator.clipboard.writeText("pavel.kotka@gmail.com");
+    navigator.clipboard.writeText(
+      "\u0070\u0061\u0076\u0065\u006c\u002e\u006b\u006f\u0074\u006b\u0061\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d",
+    );
 
     const btnCopyEmail = document.getElementById("btn-email-copy");
     btnCopyEmail?.classList.replace("hover:bg-stone-200", "bg-green-600");
