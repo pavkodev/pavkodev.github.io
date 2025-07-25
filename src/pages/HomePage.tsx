@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PageSection from "../components/PageSection";
 import PageStyling from "../components/PageStyling";
 
-const Homepage = () => {
+const HomePage = () => {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
   const experience: ExperienceObject[][] = experienceTabs;
   const EXPERIENCEEDUCATION = 0;
@@ -15,6 +15,9 @@ const Homepage = () => {
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
+  const [authorPicture, setAuthorPicture] = useState(
+    "src\\assets\\images\\pavko.png",
+  );
 
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
   const playHighfive = () => {
@@ -34,9 +37,15 @@ const Homepage = () => {
           <PageSection>
             <div className="flex gap-5">
               <img
-                className="my-auto size-[70px] rounded-full"
-                src="src\assets\images\pavko.png"
-                alt=""
+                className="my-auto size-[70px] rounded-full transition-all ease-in-out hover:scale-120 hover:-rotate-12"
+                src={authorPicture}
+                alt="Author's graduation picture"
+                onMouseEnter={() =>
+                  setAuthorPicture("src\\assets\\images\\pavko-sunglasses.png")
+                }
+                onMouseLeave={() =>
+                  setAuthorPicture("src\\assets\\images\\pavko.png")
+                }
               />
               <div className="text-xl">
                 <p>
@@ -316,4 +325,4 @@ const Homepage = () => {
     </>
   );
 };
-export default Homepage;
+export default HomePage;
