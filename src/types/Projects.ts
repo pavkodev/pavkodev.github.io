@@ -38,7 +38,31 @@ export const countryViewPreview: ProjectPreviewObject = {
   tools: [html, css, tailwind, javascript, typescript],
 };
 
+export const steaimInvestPreview: ProjectPreviewObject = {
+  name: "SteamInvest",
+  description:
+    "Investment tracker for Valve's Steam marketplace. Not recommended for users not familiar with how to use/navigate the Steam market.",
+  image: "src/assets/images/steaminvest-logo.png",
+  url: "https://pavkodev.github.io/steaminvest-tracker/",
+  codeUrl: "https://github.com/pavkodev/steaminvest-tracker",
+  detailsUrl: "",
+  tools: [html, css, tailwind, javascript, typescript],
+};
+
+export const colourTrickPreview: ProjectPreviewObject = {
+  name: "ColourTrick",
+  description:
+    "(WARNING: TERRIBLE, UGLY, OLD CODE) Website made solely for trying TypeScript and Tailwind for the first time, using an old project idea. A small game using the stroop effect. Left arrow if word matches colour, right arrow if it does not.",
+  image: "src/assets/images/colourtrick-logo.png",
+  url: "https://pavkodev.github.io/colourTrick-remastered/",
+  codeUrl: "https://github.com/pavkodev/colourtrick-remastered",
+  detailsUrl: "",
+  tools: [html, css, tailwind, javascript, typescript],
+};
+
 export const projectPreviews: ProjectPreviewObject[] = [
   animExplorePreview,
   countryViewPreview,
+  steaimInvestPreview,
+  colourTrickPreview,
 ];
