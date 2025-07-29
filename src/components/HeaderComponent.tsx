@@ -29,7 +29,7 @@ const HeaderComponent = () => {
   };
 
   return (
-    <header className="mt-4 flex flex-col items-center justify-between rounded bg-slate-900 p-2 font-mono text-xl sm:flex-row">
+    <header className="flex flex-col items-center justify-between rounded bg-slate-900 p-2 font-mono text-xl sm:flex-row">
       <Link to="/" className="cursor-pointer text-2xl font-extrabold">
         PAV<span className="hidden sm:inline">EL </span>KO
         <span className="hidden sm:inline">TKA</span>
