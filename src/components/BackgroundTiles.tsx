@@ -23,7 +23,7 @@ const BackgroundTiles = (props: { rows: number; columns: number }) => {
       });
     });
     return () => scope.current?.revert();
-  });
+  }, []);
 
   for (let i = 0; i < props.rows; i++) {
     for (let j = 0; j < props.columns; j++) {
