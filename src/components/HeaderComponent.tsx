@@ -86,7 +86,7 @@ const HeaderComponent = () => {
                     <p>Email</p>
                   </div>
                 </Link>
-                <div className="pointer-events-none absolute inset-0 top-[50%] hidden h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs sm:flex">
+                <div className="pointer-events-none absolute inset-0 top-[50%] hidden h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs focus-within:pointer-events-auto focus-within:opacity-100 focus-within:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs sm:flex">
                   <button
                     id="btn-email-copy"
                     className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
