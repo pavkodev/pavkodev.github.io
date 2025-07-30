@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
@@ -27,6 +27,17 @@ const HeaderComponent = () => {
       setEmailCopySvgPath(svgCopyPath);
     }, 1000);
   };
+
+  useEffect(() => {
+    const handleContactClose = () => {
+      setShowContact(false);
+    };
+    document.addEventListener("mousedown", handleContactClose);
+
+    return () => {
+      document.removeEventListener("mousedown", handleContactClose);
+    };
+  });
 
   return (
     <header className="flex flex-col items-center justify-between rounded bg-slate-900 p-2 font-mono text-xl sm:flex-row">
