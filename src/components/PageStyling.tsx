@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { animate, createScope, Scope } from "animejs";
+import { useEffect, useState, type ReactNode } from "react";
 import BackgroundTiles from "./BackgroundTiles";
 
 const PageStyling = (props: { children: ReactNode }) => {
@@ -12,9 +11,6 @@ const PageStyling = (props: { children: ReactNode }) => {
   const [tileRows, setTileRows] = useState(
     Math.floor(userScreenHeight / tileLength),
   );
-
-  // const root = useRef(null);
-  // const scope = useRef<Scope>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,14 +25,7 @@ const PageStyling = (props: { children: ReactNode }) => {
       );
       console.log("Tile columns: " + tileCols + "," + " rows: " + tileRows);
     };
-    //   scope.current = createScope({ root }).add(() => {
-    //     setInterval(() => {
-    //       animate("", {
-    //         x: "+=100",
-    //       });
-    //     }, 100);
-    //   });
-    //   return () => scope.current?.revert();
+
     window.addEventListener("resize", handleResize);
 
     return () => {
