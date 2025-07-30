@@ -11,13 +11,16 @@ import ProjectCards from "../components/ProjectCards";
 const HomePage = () => {
   const [experienceTabIndex, setExperienceTabIndex] = useState(0);
   const experience: ExperienceObject[][] = experienceTabs;
-  const EXPERIENCEEDUCATION = 0;
-  const EXPERIENCEWORK = 1;
+  const EXPERIENCE_EDUCATION = 0;
+  const EXPERIENCE_WORK = 1;
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
   const [authorPicture, setAuthorPicture] = useState(
     "src\\assets\\images\\pavko.png",
+  );
+  const prefersReducedMotion = window.matchMedia(
+    `(prefers-reduced-motion: reduce)`,
   );
 
   const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
@@ -38,7 +41,7 @@ const HomePage = () => {
           <PageSection>
             <div className="flex gap-5">
               <img
-                className="my-auto size-[70px] rounded-full transition-all ease-in-out hover:scale-120 hover:-rotate-12"
+                className={`my-auto size-[70px] rounded-full transition-all ease-in-out ${!prefersReducedMotion.matches ? "hover:scale-120 hover:-rotate-12" : ""}`}
                 src={authorPicture}
                 alt="Author's graduation picture"
                 onMouseEnter={() =>
@@ -56,7 +59,7 @@ const HomePage = () => {
                       handGesture === "👋" ? playHighfive() : ""
                     }
                     onClick={() => setHandGesture("🤝")}
-                    className={`animate-wiggle inline-block origin-bottom-right ${handGesture === "👋" ? "hover:scale-105 hover:cursor-grab" : "hover:cursor-default"}`}
+                    className={`${!prefersReducedMotion.matches ? "animate-wiggle" : ""} inline-block origin-bottom-right ${handGesture === "👋" && !prefersReducedMotion.matches ? "hover:scale-105 hover:cursor-grab" : "hover:cursor-default"}`}
                   >
                     {handGesture}
                   </span>
@@ -115,13 +118,13 @@ const HomePage = () => {
             <ul className="flex justify-between rounded-xl bg-slate-950/20">
               <li
                 className={`flex-1 cursor-pointer rounded-l-xl py-1 text-center transition-all ${experienceTabIndex === 0 ? "bg-stone-200 text-neutral-950" : ""} `}
-                onClick={() => setExperienceTabIndex(EXPERIENCEEDUCATION)}
+                onClick={() => setExperienceTabIndex(EXPERIENCE_EDUCATION)}
               >
                 Education
               </li>
               <li
                 className={`flex-1 cursor-pointer rounded-r-xl py-1 text-center transition-all ${experienceTabIndex === 1 ? "bg-stone-200 text-neutral-950" : ""}`}
-                onClick={() => setExperienceTabIndex(EXPERIENCEWORK)}
+                onClick={() => setExperienceTabIndex(EXPERIENCE_WORK)}
               >
                 Work
               </li>
@@ -129,7 +132,7 @@ const HomePage = () => {
             <div className="my-4 rounded-md border-2 border-l border-stone-200">
               <ul className="ml-10 border-l">
                 {/* Custom work experience field for HR */}
-                {experienceTabIndex === EXPERIENCEWORK ? (
+                {experienceTabIndex === EXPERIENCE_WORK ? (
                   <form action="" className="-ml-14 flex p-4">
                     <div className="m-2 flex items-center justify-center rounded-full bg-slate-900 p-3 ring">
                       <label htmlFor="input-image">

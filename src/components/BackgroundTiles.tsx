@@ -4,6 +4,9 @@ import { animate, createScope, Scope, stagger } from "animejs";
 const BackgroundTiles = (props: { rows: number; columns: number }) => {
   const root = useRef(null);
   const scope = useRef<Scope>(null);
+  const prefersReducedMotion = window.matchMedia(
+    `(prefers-reduced-motion: reduce)`,
+  );
 
   console.log(
     "BackgroundTiles columns: " + props.columns + ", rows: " + props.rows,
@@ -13,14 +16,16 @@ const BackgroundTiles = (props: { rows: number; columns: number }) => {
 
   useEffect(() => {
     scope.current = createScope({ root }).add(() => {
-      animate(".tile-piece", {
-        opacity: [
-          { to: 0.5, ease: "inOut(3)", duration: 2000 },
-          { to: 1.0, ease: "inOut(3)", duration: 2500 },
-        ],
-        loop: true,
-        delay: stagger(250, { from: "random" }),
-      });
+      if (!prefersReducedMotion.matches) {
+        animate(".tile-piece", {
+          opacity: [
+            { to: 0.5, ease: "inOut(3)", duration: 2000 },
+            { to: 1.0, ease: "inOut(3)", duration: 2500 },
+          ],
+          loop: true,
+          delay: stagger(250, { from: "random" }),
+        });
+      }
     });
     return () => scope.current?.revert();
   }, []);
