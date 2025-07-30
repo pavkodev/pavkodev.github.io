@@ -52,7 +52,7 @@ export const steaimInvestPreview: ProjectPreviewObject = {
 export const colourTrickPreview: ProjectPreviewObject = {
   name: "ColourTrick",
   description:
-    "(WARNING: TERRIBLE, UGLY, OLD CODE) Website made solely for trying TypeScript and Tailwind for the first time, using an old project idea. A small game using the stroop effect. Left arrow if word matches colour, right arrow if it does not.",
+    "An older project using an old idea for a stroop effect game to practice Tailwind and Typescript. Though I outgrew the code, this project was part of helping me grow!",
   image: "src/assets/images/colourtrick-logo.png",
   url: "https://pavkodev.github.io/colourTrick-remastered/",
   codeUrl: "https://github.com/pavkodev/colourtrick-remastered",

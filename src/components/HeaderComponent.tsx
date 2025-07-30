@@ -57,7 +57,7 @@ const HeaderComponent = () => {
                   target="_blank"
                   className=""
                 >
-                  <div className="p-1">
+                  <div className="p-1 px-1.5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -71,10 +71,10 @@ const HeaderComponent = () => {
                 </a>
               </li>
               <li
-                className={`transtiion-all duration-400 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
+                className={`transition-all duration-400 group-active:opacity-100 hover:-translate-y-1 active:translate-y-1`}
               >
                 <Link to="/email-form" className="peer relative">
-                  <div className="p-1">
+                  <div className="p-1 px-1.5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
