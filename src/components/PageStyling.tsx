@@ -6,10 +6,10 @@ const PageStyling = (props: { children: ReactNode }) => {
   const [userScreenWidth, setUserScreenWidth] = useState(window.innerWidth);
   const [userScreenHeight, setUserScreenHeight] = useState(window.innerHeight);
   const [tileCols, setTileCols] = useState(
-    Math.floor(userScreenWidth / tileLength),
+    Math.ceil(userScreenWidth / tileLength),
   );
   const [tileRows, setTileRows] = useState(
-    Math.floor(userScreenHeight / tileLength),
+    Math.ceil(userScreenHeight / tileLength),
   );
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const PageStyling = (props: { children: ReactNode }) => {
       const newHeight = window.innerHeight;
       setUserScreenWidth(newWidth);
       setUserScreenHeight(newHeight);
-      setTileCols(Math.floor(userScreenWidth / tileLength));
-      setTileRows(Math.floor(userScreenHeight / tileLength));
+      setTileCols(Math.ceil(userScreenWidth / tileLength));
+      setTileRows(Math.ceil(userScreenHeight / tileLength));
       console.log(
         "Width: " + userScreenWidth + ", Height: " + userScreenHeight,
       );
