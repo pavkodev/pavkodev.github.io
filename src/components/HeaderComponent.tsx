@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
@@ -9,6 +9,7 @@ const HeaderComponent = () => {
 
   const svgTickPath = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z";
   const [emailCopySvgPath, setEmailCopySvgPath] = useState(svgCopyPath);
+  const contactRef = useRef<HTMLLIElement>(null);
 
   const handleEmailCopy = () => {
     navigator.clipboard.writeText(
@@ -29,10 +30,10 @@ const HeaderComponent = () => {
   };
 
   useEffect(() => {
-    const contacts = document.getElementById("contact-tab");
     const handleContactClose = (e: Event) => {
-      if (contacts) {
-        if (!contacts.contains(e.target as Node)) {
+      console.log(contactRef.current);
+      if (contactRef.current) {
+        if (!contactRef.current.contains(e.target as Node)) {
           setShowContact(false);
         }
       }
@@ -59,8 +60,8 @@ const HeaderComponent = () => {
           </Link>
           <li
             className="relative cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5"
-            id="contact-tab"
             onClick={() => setShowContact(!showContact)}
+            ref={contactRef}
           >
             Contact
             <ul
