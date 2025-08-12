@@ -29,8 +29,13 @@ const HeaderComponent = () => {
   };
 
   useEffect(() => {
-    const handleContactClose = () => {
-      setShowContact(false);
+    const contacts = document.getElementById("contact-tab");
+    const handleContactClose = (e: Event) => {
+      if (contacts) {
+        if (!contacts.contains(e.target as Node)) {
+          setShowContact(false);
+        }
+      }
     };
     document.addEventListener("mousedown", handleContactClose);
 
@@ -54,6 +59,7 @@ const HeaderComponent = () => {
           </Link>
           <li
             className="relative cursor-pointer p-1 select-none hover:bg-slate-800 active:translate-y-0.5"
+            id="contact-tab"
             onClick={() => setShowContact(!showContact)}
           >
             Contact
