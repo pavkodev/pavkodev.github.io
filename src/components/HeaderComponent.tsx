@@ -10,6 +10,7 @@ const HeaderComponent = () => {
   const svgTickPath = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z";
   const [emailCopySvgPath, setEmailCopySvgPath] = useState(svgCopyPath);
   const contactRef = useRef<HTMLLIElement>(null);
+  const btnCopyEmailRef = useRef<HTMLButtonElement>(null);
   const copyConfirmationRef = useRef<HTMLDivElement>(null);
   const copyConfirmationAnimDuration = 700;
 
@@ -18,7 +19,7 @@ const HeaderComponent = () => {
       "\u0070\u0061\u0076\u0065\u006c\u002e\u006b\u006f\u0074\u006b\u0061\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d",
     );
 
-    const btnCopyEmail = document.getElementById("btn-email-copy");
+    const btnCopyEmail = btnCopyEmailRef.current;
     const copyConfirmation = copyConfirmationRef.current;
     btnCopyEmail?.classList.replace("hover:bg-stone-200", "bg-green-600");
     btnCopyEmail?.classList.remove("hover:text-stone-950");
@@ -129,9 +130,9 @@ const HeaderComponent = () => {
                   </Link>
                   <div className="pointer-events-none absolute inset-0 top-[50%] hidden h-full w-full -translate-y-[50%] flex-col items-center justify-around rounded opacity-0 transition-all duration-100 peer-hover:pointer-events-auto peer-hover:opacity-100 peer-hover:backdrop-blur-xs focus-within:pointer-events-auto focus-within:opacity-100 focus-within:backdrop-blur-xs hover:pointer-events-auto hover:opacity-100 hover:backdrop-blur-xs sm:flex">
                     <button
-                      id="btn-email-copy"
                       className="w-[80%] rounded-4xl p-2 text-stone-200 hover:bg-stone-200 hover:text-stone-950"
                       onClick={() => handleEmailCopy()}
+                      ref={btnCopyEmailRef}
                     >
                       <svg
                         id="svg-email-copy"

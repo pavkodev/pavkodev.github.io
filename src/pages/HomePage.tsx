@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { experienceTabs, type ExperienceObject } from "../types/Experience";
 import { techStack, type TechStackInfo } from "../types/TechStack";
 import { projectPreviews } from "../types/Projects";
@@ -19,6 +19,7 @@ const HomePage = () => {
   const [authorPicture, setAuthorPicture] = useState(
     "src\\assets\\images\\pavko.png",
   );
+  const customLogoRef = useRef<HTMLImageElement>(null);
   const prefersReducedMotion = window.matchMedia(
     `(prefers-reduced-motion: reduce)`,
   );
@@ -141,7 +142,7 @@ const HomePage = () => {
                           src="src/assets/svgs/add.svg"
                           alt="placeholder input image"
                           className="size-10 cursor-pointer"
-                          id="custom-logo"
+                          ref={customLogoRef}
                         />
                       </label>
                       <input
@@ -156,10 +157,8 @@ const HomePage = () => {
                             file = e.target.files[0];
                           }
                           let image: HTMLImageElement | null = null;
-                          if (document.getElementById("custom-logo")) {
-                            image = document.getElementById(
-                              "custom-logo",
-                            ) as HTMLImageElement;
+                          if (customLogoRef.current) {
+                            image = customLogoRef.current;
                           }
                           if (file && image)
                             image.src = URL.createObjectURL(file);
