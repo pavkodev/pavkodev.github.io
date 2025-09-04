@@ -1,8 +1,11 @@
 import { type ProjectPreviewObject } from "../types/Projects";
 
 const ProjectCards = (props: { projects: ProjectPreviewObject[] }) => {
-  return props.projects.map((project) => (
-    <div className="col-span-1 rounded-xl border-2 p-4 shadow-[inset_0_-20px_40px_-30px_rgba(255,255,255,0.5)] transition-all hover:bg-stone-200/2 hover:shadow-[inset_0_-20px_45px_-25px_rgba(255,255,255,0.5)]">
+  return props.projects.map((project, index) => (
+    <div
+      className="col-span-1 rounded-xl border-2 p-4 shadow-[inset_0_-20px_40px_-30px_rgba(255,255,255,0.5)] transition-all hover:bg-stone-200/2 hover:shadow-[inset_0_-20px_45px_-25px_rgba(255,255,255,0.5)]"
+      key={`project-${index}`}
+    >
       <div className="flex flex-col gap-2">
         <img
           src={project.image}
@@ -11,9 +14,10 @@ const ProjectCards = (props: { projects: ProjectPreviewObject[] }) => {
         />
         <h2 className="text-xl font-semibold">{project.name}</h2>
         <div className="flex flex-wrap gap-1">
-          {project.tools.map((tool) => (
+          {project.tools.map((tool, index) => (
             <p
               className={`inline cursor-default border-[${tool.colour}] bg-[${tool.colour}]/10 hover:bg-[${tool.colour}]/30 rounded-2xl border-1 p-1 px-2 text-xs`}
+              key={`tool-${index}`}
             >
               {tool.name}
             </p>

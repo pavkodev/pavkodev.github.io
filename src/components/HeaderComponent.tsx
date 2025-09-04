@@ -41,7 +41,6 @@ const HeaderComponent = () => {
 
   useEffect(() => {
     const handleContactClose = (e: Event) => {
-      console.log(contactRef.current);
       if (contactRef.current) {
         if (!contactRef.current.contains(e.target as Node)) {
           setShowContact(false);

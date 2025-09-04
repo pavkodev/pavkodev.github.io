@@ -8,9 +8,6 @@ const BackgroundTiles = (props: { rows: number; columns: number }) => {
     `(prefers-reduced-motion: reduce)`,
   );
 
-  console.log(
-    "BackgroundTiles columns: " + props.columns + ", rows: " + props.rows,
-  );
   const background = [];
   let index = 0;
   const initialAnimationOpacity = 1.0;
@@ -65,14 +62,6 @@ const BackgroundTiles = (props: { rows: number; columns: number }) => {
           });
         });
       }
-      // animate(".tile-piece", {
-      //   opacity: [
-      //     { to: 0.5, ease: "inOut(3)", duration: 2000 },
-      //     { to: 1.0, ease: "inOut(3)", duration: 2500 },
-      //   ],
-      //   loop: true,
-      //   delay: stagger(250, { from: "random" }),
-      // });
     }
     return () => scope.current?.revert();
   }, []);
@@ -83,11 +72,11 @@ const BackgroundTiles = (props: { rows: number; columns: number }) => {
         <div
           className="tile-piece aspect-square bg-slate-950"
           data-index={index}
+          key={`tile-${index}`}
         ></div>,
       );
       index++;
     }
-    console.log({ background });
   }
 
   return (

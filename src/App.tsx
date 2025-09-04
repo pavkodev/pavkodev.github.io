@@ -31,10 +31,6 @@ function App() {
       setUserScreenHeight(newHeight);
       setTileCols(Math.ceil(userScreenWidth / tileLength));
       setTileRows(Math.ceil(userScreenHeight / tileLength));
-      console.log(
-        "Width: " + userScreenWidth + ", Height: " + userScreenHeight,
-      );
-      console.log("Tile columns: " + tileCols + "," + " rows: " + tileRows);
     };
 
     window.addEventListener("resize", handleResize);

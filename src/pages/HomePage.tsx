@@ -16,9 +16,7 @@ const HomePage = () => {
   const stack: TechStackInfo[] = techStack;
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
-  const [authorPicture, setAuthorPicture] = useState(
-    "/images/pavko.png",
-  );
+  const [authorPicture, setAuthorPicture] = useState("/images/pavko.png");
   const customLogoRef = useRef<HTMLImageElement>(null);
   const prefersReducedMotion = window.matchMedia(
     `(prefers-reduced-motion: reduce)`,
@@ -48,9 +46,7 @@ const HomePage = () => {
                 onMouseEnter={() =>
                   setAuthorPicture("/images/pavko-sunglasses.png")
                 }
-                onMouseLeave={() =>
-                  setAuthorPicture("/images/pavko.png")
-                }
+                onMouseLeave={() => setAuthorPicture("/images/pavko.png")}
               />
               <div className="text-xl">
                 <p>
@@ -123,8 +119,8 @@ const HomePage = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
                 />
               </svg>
@@ -210,8 +206,8 @@ const HomePage = () => {
                 ) : (
                   ""
                 )}
-                {experience[experienceTabIndex].map((experience) => (
-                  <div className="-ml-14 flex p-4">
+                {experience[experienceTabIndex].map((experience, index) => (
+                  <div className="-ml-14 flex p-4" key={`experience-${index}`}>
                     <div className="m-2 flex items-center justify-center rounded-full bg-slate-900 p-3 ring">
                       <img
                         src={experience.image}
@@ -240,9 +236,10 @@ const HomePage = () => {
           <PageSection>
             <h1 className="mb-4 text-xl font-bold">Tech Stack</h1>
             <div className="m-auto grid grid-flow-row grid-cols-3 justify-between gap-2 rounded border-2 p-2">
-              {stack.map((tech) => (
+              {stack.map((tech, index) => (
                 <div
                   className={`flex w-full min-w-fit cursor-default flex-col rounded transition-all hover:bg-[${tech.colour}]/30 bg-[${tech.colour}]/10 border-[${tech.colour}] border-2 p-2 sm:flex-row`}
+                  key={`tech-${index}`}
                 >
                   <img
                     className="mx-auto size-6 sm:mx-0 sm:mr-4 sm:size-10"
