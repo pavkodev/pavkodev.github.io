@@ -34,7 +34,7 @@ const ProjectCards = (props: { projects: ProjectPreviewObject[] }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="size-5 stroke-2 transition-colors group-hover:mix-blend-difference"
+              className="size-5 fill-transparent stroke-2 transition-colors group-hover:mix-blend-difference"
             >
               <circle cx="12" cy="12" r="10" />
               <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
