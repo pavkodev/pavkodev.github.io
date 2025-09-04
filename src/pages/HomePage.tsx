@@ -112,7 +112,7 @@ const HomePage = () => {
             <a
               href="CV.pdf"
               download="pavelkotkaCV.pdf"
-              className="flex w-fit cursor-pointer rounded bg-slate-800 fill-transparent p-2 hover:bg-slate-700"
+              className="flex w-fit cursor-pointer rounded bg-slate-800 fill-transparent p-2 transition-all hover:bg-slate-700"
             >
               <svg
                 className="mr-2 size-6 stroke-current stroke-2"
