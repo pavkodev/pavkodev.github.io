@@ -14,7 +14,7 @@ const enuExperience: ExperienceObject = {
   institution: "Edinburgh Napier University",
   dateStart: "2020",
   dateEnd: "2024",
-  image: "src\\assets\\svgs\\enu.svg",
+  image: "/svgs/enu.svg",
 };
 
 const ibExperience: ExperienceObject = {
@@ -23,7 +23,7 @@ const ibExperience: ExperienceObject = {
   institution: "Nyborg Gymnasium",
   dateStart: "2017",
   dateEnd: "2020",
-  image: "src\\assets\\svgs\\nyborggym.svg",
+  image: "/svgs/nyborggym.svg",
 };
 const educationExperiences: ExperienceObject[] = [enuExperience, ibExperience];
 
@@ -34,7 +34,7 @@ const riseExperience: ExperienceObject = {
   institution: "RISE Aberdeen",
   dateStart: "January 2023",
   dateEnd: "May 2023",
-  image: "src\\assets\\images\\rise.png",
+  image: "/images/rise.png",
 };
 
 const workExperiences: ExperienceObject[] = [riseExperience];

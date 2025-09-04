@@ -17,14 +17,14 @@ const HomePage = () => {
   const recentProjects = projectPreviews.slice(0, 2); //For displaying 2 most recent projects
   const [handGesture, setHandGesture] = useState("👋");
   const [authorPicture, setAuthorPicture] = useState(
-    "src\\assets\\images\\pavko.png",
+    "/images/pavko.png",
   );
   const customLogoRef = useRef<HTMLImageElement>(null);
   const prefersReducedMotion = window.matchMedia(
     `(prefers-reduced-motion: reduce)`,
   );
 
-  const highfive: HTMLAudioElement = new Audio("src/assets/audio/highfive.mp3");
+  const highfive: HTMLAudioElement = new Audio("/audio/highfive.mp3");
   const playHighfive = () => {
     highfive.load();
     highfive.play();
@@ -46,10 +46,10 @@ const HomePage = () => {
                 src={authorPicture}
                 alt="Author's graduation picture"
                 onMouseEnter={() =>
-                  setAuthorPicture("src\\assets\\images\\pavko-sunglasses.png")
+                  setAuthorPicture("/images/pavko-sunglasses.png")
                 }
                 onMouseLeave={() =>
-                  setAuthorPicture("src\\assets\\images\\pavko.png")
+                  setAuthorPicture("/images/pavko.png")
                 }
               />
               <div className="text-xl">
@@ -112,6 +112,25 @@ const HomePage = () => {
                 balancing usability with interactibility and engageability.
               </span>
             </p>
+
+            <a
+              href="CV.pdf"
+              download="pavelkotkaCV.pdf"
+              className="flex w-fit cursor-pointer rounded bg-slate-800 fill-transparent p-2 hover:bg-slate-700"
+            >
+              <svg
+                className="mr-2 size-6 stroke-current stroke-2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                />
+              </svg>
+
+              <p>Download CV</p>
+            </a>
           </PageSection>
           {/* Experience section */}
           <PageSection>
@@ -139,7 +158,7 @@ const HomePage = () => {
                       <label htmlFor="input-image">
                         {/* Plus icon used as input indicator for custom company logo input prompt */}
                         <img
-                          src="src/assets/svgs/add.svg"
+                          src="/svgs/add.svg"
                           alt="placeholder input image"
                           className="size-10 cursor-pointer"
                           ref={customLogoRef}
